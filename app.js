@@ -153,6 +153,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	function doGo() {
+		// remove any 'hidden' class markers when user clicks Go
+		document.querySelectorAll('.hidden').forEach(el => el.classList.remove('hidden'));
 		const names = parseNames();
 		const podSizeVal = parseInt(podInput.value, 10) || 1;
 		if (names.length === 0) {
@@ -189,5 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	if (!namesInput.value.trim()) {
 		namesInput.value = 'Alice, Bob, Charlie, Denise, Eric, Fiona, George, Hannah';
 	}
-	doGo();
+
+	// generate initial chart based on prefilled names and default inputs
+	//doGo();
 });
