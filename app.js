@@ -24,9 +24,16 @@ document.addEventListener('DOMContentLoaded', () => {
 		rows = Math.min(Math.max(1, rows), 8);
 		cols = Math.min(Math.max(1, cols), 8);
 		podSize = Math.max(1, podSize || 1);
+		let addColNext = true;
 		while (rows * cols * podSize < required && (rows < 8 || cols < 8)) {
-			if (cols < 8) cols++;
-			else if (rows < 8) rows++;
+			if (addColNext) {
+				if (cols < 8) cols++;
+				else if (rows < 8) rows++;
+			} else {
+				if (rows < 8) rows++;
+				else if (cols < 8) cols++;
+			}
+			addColNext = !addColNext;
 		}
 		return { rows, cols };
 	}
