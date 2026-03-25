@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	function parseNames() {
 		const raw = namesInput.value || '';
 		if (!raw.trim()) return [];
-		// split on commas, newlines, or semicolons, keep empties
-		return raw.split(/[,;\n]/).map(s => s.trim());
+		// split on commas, newlines, or semicolons, trim and ignore empty entries
+		return raw.split(/[,;\n]/).map(s => s.trim()).filter(s => s.length > 0);
 	}
 
 	function autoExpandLayout(required, rows, cols, podSize) {
