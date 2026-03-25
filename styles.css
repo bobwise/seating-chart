@@ -159,3 +159,5 @@ textarea {
         grid-auto-rows: 60px
     }
 }
+
+.hidden { display: none; }
