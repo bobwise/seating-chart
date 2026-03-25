@@ -70,7 +70,7 @@ textarea {
 
 .seat {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     border: 1px solid #cfd8d7;
     background: var(--seat-bg);
@@ -96,13 +96,15 @@ textarea {
     display: flex;
     gap: 8px;
     width: 100%;
-    align-items: stretch
+    align-items: stretch;
+    height: 100%;
 }
 
 .desk {
     display: flex;
     flex: 1 1 0;
-    min-width: 0
+    min-width: 0;
+    height: 100%;
 }
 
 .desk-seat {
