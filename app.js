@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	// initial render
 	// prefill example names for convenience
 	if (!namesInput.value.trim()) {
-		namesInput.value = 'Alice, Bob, Charlie, Denise, Eric, Fiona, George, Hannah';
+		namesInput.value = 'Maria Cruz\nMei-Ling Chen\nJamal Malik Thompson\nAna López-García\nMichael Sean O\'Connor\nAisha Noor Al-Hassan\nBill Lee\nPriya Kaur Singh\nSam Jones\nChen Wei Zhao\nSofia Isabel Martinez-Rodriguez\nKwame Nkrumah Mensah';
 	}
 
 	// generate initial chart based on prefilled names and default inputs
