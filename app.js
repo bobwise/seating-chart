@@ -61,6 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 			const podEl = document.createElement('div');
 			podEl.className = 'pod';
+			// if this pod contains 4 desks, render them in a 2x2 square
+			if (pod.desks && pod.desks.length === 4) podEl.classList.add('pod-square');
 
 			pod.desks.forEach((name, deskIndex) => {
 				const desk = document.createElement('div');
