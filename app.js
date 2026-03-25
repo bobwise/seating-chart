@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	const colsInput = document.getElementById('cols');
 	const podInput = document.getElementById('podSize');
 	const goBtn = document.getElementById('go');
-	const sortBtn = document.getElementById('sort');
 	const shuffleBtn = document.getElementById('shuffle');
 	const printBtn = document.getElementById('print');
 	const namesInput = document.getElementById('names');
@@ -137,18 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 
-	function sortSeats() {
-		const flat = pods.flatMap(p => p.desks).filter(Boolean).slice();
-		flat.sort((a, b) => a.localeCompare(b));
-		const total = pods.reduce((acc, p) => acc + p.desks.length, 0);
-		const filled = [];
-		for (let i = 0; i < total; i++) filled[i] = flat[i] || '';
-		// reassign
-		let k = 0;
-		pods.forEach(p => {
-			for (let i = 0; i < p.desks.length; i++) p.desks[i] = filled[k++] || '';
-		});
-	}
+	// sort functionality removed
 
 	function shuffleSeats() {
 		const flat = pods.flatMap(p => p.desks);
@@ -191,7 +179,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// wire up buttons
 	goBtn.addEventListener('click', doGo);
-	sortBtn.addEventListener('click', () => { sortSeats(); renderChart(parseInt(rowsInput.value,10), parseInt(colsInput.value,10), parseInt(podInput.value,10)); });
 	shuffleBtn.addEventListener('click', () => { shuffleSeats(); renderChart(parseInt(rowsInput.value,10), parseInt(colsInput.value,10), parseInt(podInput.value,10)); });
 	printBtn.addEventListener('click', doPrint);
 
