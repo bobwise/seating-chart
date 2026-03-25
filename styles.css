@@ -1,6 +1,6 @@
 :root {
     --panel-bg: #fff;
-    --accent: #2b7a78;
+    --accent: #188cb0;
     --seat-bg: #f7f7f7;
 }
 
@@ -12,7 +12,7 @@ body {
     font-family: system-ui, Segoe UI, Roboto, Helvetica, Arial;
     margin: 0;
     padding: 20px;
-    background: linear-gradient(180deg, #e6f7f6, #dff3f2);
+    background: #f7f7f7;
     color: #063740;
 }
 
@@ -64,7 +64,7 @@ textarea {
 .chart {
     display: grid;
     grid-auto-rows: 80px;
-    gap: 8px;
+    gap: 50px;
     background: transparent
 }
 
