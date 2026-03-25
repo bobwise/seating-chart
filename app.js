@@ -6,9 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
 	const podInput = document.getElementById('podSize');
 	const goBtn = document.getElementById('go');
 	const shuffleBtn = document.getElementById('shuffle');
+	const clearBtn = document.getElementById('clear');
 	const printBtn = document.getElementById('print');
 	const namesInput = document.getElementById('names');
 	const chart = document.getElementById('chart');
+
+	// capture elements that start hidden so we can restore them on Clear
+	const initiallyHidden = Array.from(document.querySelectorAll('.hidden'));
 
 	// pods: array of { desks: [name, ...] }
 	let pods = [];
@@ -179,6 +183,19 @@ document.addEventListener('DOMContentLoaded', () => {
 		renderChart(rows, cols, podSizeVal);
 	}
 
+	function doClear() {
+		// erase names, clear pods/chart, reset inputs, and restore initial hidden elements
+		namesInput.value = '';
+		pods = [];
+		chart.innerHTML = '';
+		rowsInput.value = 1;
+		colsInput.value = 1;
+		podInput.value = 1;
+		initiallyHidden.forEach(el => el.classList.add('hidden'));
+		// put focus back in names field
+		namesInput.focus();
+	}
+
 	function doPrint() {
 		// open a new window with only the chart
 		const w = window.open('', '_blank');
@@ -190,8 +207,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// wire up buttons
 	goBtn.addEventListener('click', doGo);
-	shuffleBtn.addEventListener('click', () => { shuffleSeats(); renderChart(parseInt(rowsInput.value,10), parseInt(colsInput.value,10), parseInt(podInput.value,10)); });
+	shuffleBtn.addEventListener('click', () => { shuffleSeats(); renderChart(parseInt(rowsInput.value, 10), parseInt(colsInput.value, 10), parseInt(podInput.value, 10)); });
 	printBtn.addEventListener('click', doPrint);
+	clearBtn.addEventListener('click', doClear);
 
 	// initial render
 	// prefill example names for convenience
