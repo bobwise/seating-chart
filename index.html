@@ -11,6 +11,11 @@
     <div class="app">
         <h1>Free Seating Chart Generator</h1>
 
+        <div class="panel">
+            <label for="names">Names</label>
+            <textarea id="names" placeholder="Alex, Billy, Chris, "></textarea>
+        </div>
+
         <div class="panel controls">
             <label>Rows <input id="rows" type="number" min="1" max="8" value="4"></label>
             <label>Cols <input id="cols" type="number" min="1" max="8" value="4"></label>
@@ -18,11 +23,6 @@
             <button id="go">Go</button>
             <button id="shuffle">Shuffle</button>
             <button id="print">Print</button>
-        </div>
-
-        <div class="panel">
-            <label for="names">Names</label>
-            <textarea id="names" placeholder="Alex, Billy, Chris, "></textarea>
         </div>
 
         <div id="chartWrapper" class="panel">
