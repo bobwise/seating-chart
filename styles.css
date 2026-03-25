@@ -66,7 +66,7 @@ textarea {
 .chart {
     display: grid;
     grid-auto-rows: 100px;
-    gap: 50px;
+    gap: 40px;
     background: transparent
 }
 
