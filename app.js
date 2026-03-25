@@ -14,6 +14,13 @@ document.addEventListener('DOMContentLoaded', () => {
 	// capture elements that start hidden so we can restore them on Clear
 	const initiallyHidden = Array.from(document.querySelectorAll('.hidden'));
 
+		function updateGoState() {
+			if (!goBtn) return;
+			goBtn.disabled = !namesInput.value.trim();
+		}
+
+		namesInput.addEventListener('input', updateGoState);
+
 	// pods: array of { desks: [name, ...] }
 	let pods = [];
 
@@ -194,6 +201,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		initiallyHidden.forEach(el => el.classList.add('hidden'));
 		// put focus back in names field
 		namesInput.focus();
+			// update Go button state after clearing
+			updateGoState();
 	}
 
 	function doPrint() {
@@ -216,6 +225,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	if (!namesInput.value.trim()) {
 		namesInput.value = 'Maria Cruz\nMei-Ling Chen\nJamal Malik Thompson\nAna López-García\nMichael Sean O\'Connor\nAisha Noor Al-Hassan\nBill Lee\nPriya Kaur Singh\nSam Jones\nChen Wei Zhao\nSofia Isabel Martinez-Rodriguez\nKwame Nkrumah Mensah';
 	}
+		// ensure Go button state matches textbox content (after any prefill)
+		updateGoState();
 
 	// generate initial chart based on prefilled names and default inputs
 	//doGo();
