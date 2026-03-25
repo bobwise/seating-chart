@@ -27,8 +27,13 @@ document.addEventListener('DOMContentLoaded', () => {
 	function parseNames() {
 		const raw = namesInput.value || '';
 		if (!raw.trim()) return [];
-		// split on commas, newlines, or semicolons, trim and ignore empty entries
-		return raw.split(/[,;\n]/).map(s => s.trim()).filter(s => s.length > 0);
+		// split on commas, newlines, or semicolons
+		// trim, strip common list markers (bullets, dashes, numbered lists), and ignore empty entries
+		return raw.split(/[,;\n]/).map(s => {
+			// remove leading bullets/dashes (-, *, •), numbered items (1. or 1)), or lettered items (a. or a))
+			const cleaned = s.replace(/^\s*(?:[-*•\u2022]|\d+[\.\)]|[A-Za-z][\.\)])\s*/, '');
+			return cleaned.trim();
+		}).filter(s => s.length > 0);
 	}
 
 	function autoExpandLayout(required, rows, cols, podSize) {
