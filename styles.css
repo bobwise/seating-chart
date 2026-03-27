@@ -28,7 +28,7 @@ h1 {
 .panel {
     background: var(--panel-bg);
     padding: 12px;
-    border-radius: 8px;
+    border-radius: 6px;
     margin: 12px 0;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08)
 }
@@ -78,7 +78,7 @@ textarea {
     background: var(--seat-bg);
     border-radius: 6px;
     overflow: hidden;
-    padding: 6px;
+    padding: 2px;
     text-align: center;
     user-select: none
 }
@@ -144,7 +144,7 @@ textarea {
 
 button {
     padding: 8px 10px;
-    border-radius: 10px;
+    border-radius: 6px;
     border: none;
     background: var(--accent);
     color: #fff;
@@ -162,7 +162,7 @@ button {
     width: 72px;
     height: 44px;
     border: 1px solid #cfd8d7;
-    border-radius: 8px;
+    border-radius: 6px;
     background: #fff;
     color: #063740;
     cursor: pointer;

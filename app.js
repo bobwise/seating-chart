@@ -280,5 +280,5 @@ document.addEventListener('DOMContentLoaded', () => {
 		updateGoState();
 
 	// generate initial chart based on prefilled names and default inputs
-	//doGo();
+	doGo();
 });
