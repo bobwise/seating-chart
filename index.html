@@ -27,10 +27,10 @@
             <div>
 
                 <div id="arrowsContainer">
-                    <button class="numChange btn-tertiary" id="wider">⬅️➡️</button>
                     <button class="numChange btn-tertiary" id="narrower">➡️⬅️</button>
-                    <button class="numChange btn-tertiary" id="taller">⬆️</button>
-                    <button class="numChange btn-tertiary" id="shorter">⬇️</button>
+                    <button class="numChange btn-tertiary" id="wider">⬅️➡️</button>
+                    <button class="numChange btn-tertiary" id="taller">⬇️</button>
+                    <button class="numChange btn-tertiary" id="shorter">⬆️</button>
                 </div>
 
                 <input id="rows" type="number" min="1" max="8" value="1">
@@ -88,8 +88,10 @@
 
         <div id="chartWrapper" class="panel hidden">
             <div id="dragLabel">Drag and drop to rearrange desks.</div>
-            <div id="boardLabel">Board</div>
-            <div id="chart" class="chart"></div>
+            <div id="printArea">
+                <div id="boardLabel">Board</div>
+                <div id="chart" class="chart"></div>
+            </div>
         </div>
 
         <div class="align-right">

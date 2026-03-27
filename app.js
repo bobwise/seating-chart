@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const printBtn = document.getElementById('print');
 	const namesInput = document.getElementById('names');
 	const chart = document.getElementById('chart');
+	const printArea = document.getElementById('printArea');
 	const widerButton = document.getElementById('wider');
 	const narrowerButton = document.getElementById('narrower');
 	const tallerButton = document.getElementById('taller');
@@ -256,7 +257,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		const w = window.open('', '_blank');
 		if (!w) return alert('Popup blocked: allow popups to use print.');
 		const style = `<style>body{font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial;padding:10px} .chart{display:grid;grid-template-columns:${chart.style.gridTemplateColumns};grid-auto-rows:80px;gap:8px} .seat{border:1px solid #cfd8d7;background:#f7f7f7;border-radius:6px;display:flex;align-items:center;justify-content:center;padding:6px;}</style>`;
-		w.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>Print</title>${style}</head><body><div class="chart">${chart.innerHTML}</div><script>setTimeout(()=>{window.print();},200);</script></body></html>`);
+		w.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>Print</title>${style}</head><body><div class="print-area">${printArea.innerHTML}</div><script>setTimeout(()=>{window.print();},200);</script></body></html>`);
 		w.document.close();
 	}
 
@@ -299,8 +300,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	// prefill example names for convenience
 	if (!namesInput.value.trim()) {
 		doClear();
-		// namesInput.value = 'Soren-Alexis Vale Mercer\nRemy Clarke\nBo Quinn Hale\nAvery-Jules Mercer Cross\nLior Skye\nCassian River Thorn Vale\nAri Sol Carter\nSkyler Élan Cross Vale\nZee Rowan Hale\nHollis Alexander Wren Vale\nPax Mercer\nFinley-Rowan Ashford Vale\nIo Skye Carter\nMarlowe Seraphine Vale Cross\nRen Hale\nTatum Blake Mercer\nLux Vale\nEmberlynn Quinn Hale Cross\nAsh Carter\nDakota-Rain Mercer Vale\nElio Skye\nBriar Alexandria Skye Vale\nKit Hale\nZephyr Orion Vale Cross\nSol Mercer\nAvery Noël Carter\nOnyx Vale\nShiloh Evander Cross Vale\nRue Mercer\nLyric Hale';
+		namesInput.value = 'Soren-Alexis Vale Mercer\nRemy Clarke\nBo Quinn Hale\nAvery-Jules Mercer Cross\nLior Skye\nCassian River Thorn Vale\nAri Sol Carter\nSkyler Élan Cross Vale\nZee Rowan Hale\nHollis Alexander Wren Vale\nPax Mercer\nFinley-Rowan Ashford Vale\nIo Skye Carter\nMarlowe Seraphine Vale Cross\nRen Hale\nTatum Blake Mercer\nLux Vale\nEmberlynn Quinn Hale Cross\nAsh Carter\nDakota-Rain Mercer Vale\nElio Skye\nBriar Alexandria Skye Vale\nKit Hale\nZephyr Orion Vale Cross\nSol Mercer\nAvery Noël Carter\nOnyx Vale\nShiloh Evander Cross Vale\nRue Mercer\nLyric Hale';
 	}
 	// generate initial chart based on prefilled names and default inputs
-	// doGo();
+	doGo();
 });
