@@ -224,6 +224,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 		let rows = parseInt(rowsInput.value, 10) || 1;
 		let cols = parseInt(colsInput.value, 10) || 1;
+		if (changed === 'podSize') {
+			rows = 1;
+			cols = 1;
+		}
 		const { rows: r2, cols: c2, podSize: p2 } = autoExpandLayout(names.length, rows, cols, podSizeVal, changed);
 		rows = r2; cols = c2; podSizeVal = p2;
 		rowsInput.value = rows; colsInput.value = cols;
