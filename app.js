@@ -268,6 +268,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	document.getElementById('printBottom').addEventListener('click', doPrint);
 	clearBtn.addEventListener('click', doClear);
 
+	namesInput.addEventListener('input', () => {
+		if (namesInput.value.trim()) doGo('names');
+	})
+
 	// apply chart immediately when rows or cols change
 	rowsInput.addEventListener('input', () => {
 		if (namesInput.value.trim()) doGo('rows');
