@@ -256,6 +256,14 @@ document.addEventListener('DOMContentLoaded', () => {
 	printBtn.addEventListener('click', doPrint);
 	clearBtn.addEventListener('click', doClear);
 
+	// apply chart immediately when rows or cols change
+	rowsInput.addEventListener('input', () => {
+		if (namesInput.value.trim()) doGo();
+	});
+	colsInput.addEventListener('input', () => {
+		if (namesInput.value.trim()) doGo();
+	});
+
 	// initial render
 	// prefill example names for convenience
 	if (!namesInput.value.trim()) {
