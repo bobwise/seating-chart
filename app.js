@@ -256,7 +256,112 @@ document.addEventListener('DOMContentLoaded', () => {
 		// open a new window with only the chart
 		const w = window.open('', '_blank');
 		if (!w) return alert('Popup blocked: allow popups to use print.');
-		const style = `<style>body{font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial;padding:10px} .chart{display:grid;grid-template-columns:${chart.style.gridTemplateColumns};grid-auto-rows:80px;gap:8px} .seat{border:1px solid #cfd8d7;background:#f7f7f7;border-radius:6px;display:flex;align-items:center;justify-content:center;padding:6px;}</style>`;
+		const style = `<style>
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    font-family: system-ui, Segoe UI, Roboto, Helvetica, Arial;
+    margin: 0;
+    padding: 20px;
+    background: #ffffff;
+    color: #063740;
+}
+
+#chartWrapper {
+    padding: 8px;
+    margin-bottom: 100px;
+}
+
+.chart {
+    display: grid;
+    gap: 40px;
+    background: transparent;
+}
+
+.seat {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    border: 2px solid #ccc;
+    background: var(--seat-bg);
+    border-radius: 6px;
+    overflow: hidden;
+    padding: 2px;
+    text-align: center;
+    user-select: none
+}
+
+.seat .name {
+    display: block;
+    width: 100%;
+    padding: 2px 4px;
+    font-weight: 600
+}
+
+.pod {
+    display: flex;
+    gap: 2px;
+    width: 100%;
+    align-items: stretch;
+    height: 100%;
+}
+
+/* when a pod has 4 desks, show them in a 2x2 grid */
+.pod-square {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 1px;
+    align-items: stretch;
+}
+
+.desk {
+    display: flex;
+    flex: 1 1 0;
+    min-width: 0;
+    height: 100%;
+}
+
+.desk-seat {
+    flex: 1 1 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    padding: 6px 8px;
+    min-height: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box
+}
+
+@media (max-width:600px) {
+    .chart {
+        grid-auto-rows: 60px
+    }
+}
+
+#boardLabel {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 12px;
+    background: #ffffff;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}</style>`;
 		w.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>Print</title>${style}</head><body><div class="print-area">${printArea.innerHTML}</div><script>setTimeout(()=>{window.print();},200);</script></body></html>`);
 		w.document.close();
 	}
