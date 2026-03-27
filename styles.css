@@ -159,9 +159,6 @@ button {
     display: inline-flex;
 }
 
-.pod-size-toggle .pod-square {
-}
-
 .pod-option {
     width: 72px;
     height: 44px;
@@ -226,7 +223,12 @@ button {
 }
 
 button.delete {
-    background-color: red;
+    border: 2px solid rgb(160, 0, 0);
+    background-color: rgb(255, 207, 207);
+    color: black;
+    font-size: 14px;
+    margin-left: 20px;
+    padding: 4px 6px;
 }
 
 .controls button[disabled] {
@@ -265,6 +267,25 @@ button.delete {
     font-size: 14px;
     color: #666;
     z-index: 5;
+}
+
+#dragLabel, #namesLabel {
+    font-size: 14px;
+    color: #343434;
+    margin-bottom: 6px;
+}
+
+#boardLabel {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 12px;
+    background: #f6f6f6;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
 }
 
 .hidden {

@@ -13,8 +13,8 @@
         <h1>Free Seating Chart Generator</h1>
 
         <div class="panel">
-            <label for="names">Names</label>
-            <button class="delete hidden" id="clear">Clear</button>
+            <label for="names" id="namesLabel">Names</label>
+            <button class="delete hidden" id="clear">❌ Clear</button>
             <textarea id="names"></textarea>
         </div>
 
@@ -76,7 +76,8 @@
         </div>
 
         <div id="chartWrapper" class="panel hidden">
-            <label id="dragLabel">Drag and drop to rearrange seats.</label>
+            <div id="dragLabel">Drag and drop to rearrange seats.</div>
+            <div id="boardLabel">Board</div>
             <div id="chart" class="chart"></div>
         </div>
 
