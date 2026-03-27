@@ -68,15 +68,14 @@ textarea {
 }
 
 #chartWrapper {
-    padding: 8px
+    padding: 8px;
+    margin-bottom: 100px;
 }
 
 .chart {
     display: grid;
-    grid-auto-rows: 100px;
     gap: 40px;
     background: transparent;
-    margin-bottom: 100px;
 }
 
 .seat {
