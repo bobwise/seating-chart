@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	podOptions.forEach(option => {
 		option.addEventListener('click', () => {
 			setPodSize(option.dataset.podSize);
-			doGo();
+			doGo('podSize');
 		});
 	});
 
@@ -56,30 +56,36 @@ document.addEventListener('DOMContentLoaded', () => {
 		}).filter(s => s.length > 0);
 	}
 
-	function autoExpandLayout(required, rows, cols, podSize) {
+	function autoExpandLayout(required, rows, cols, podSize, changed) {
 		rows = Math.min(Math.max(1, rows), 8);
 		cols = Math.min(Math.max(1, cols), 8);
-		podSize = Math.max(1, podSize || 1);
-		let addColNext = true;
-		while (rows * cols * podSize < required && (rows < 8 || cols < 8)) {
-			if (addColNext) {
+		podSize = Math.min(Math.max(1, podSize || 1), 4);
+
+		const canGrow = () => (rows < 8 || cols < 8 || podSize < 4);
+
+		while (rows * cols * podSize < required && canGrow()) {
+			if (changed === 'rows') {
 				if (cols < 8) cols++;
+				else if (podSize < 4) podSize++;
 				else if (rows < 8) rows++;
-			} else {
+				else break;
+			} else if (changed === 'cols') {
+				if (rows < 8) rows++;
+				else if (podSize < 4) podSize++;
+				else if (cols < 8) cols++;
+				else break;
+			} else if (changed === 'podSize') {
 				if (rows < 8) rows++;
 				else if (cols < 8) cols++;
+				else if (podSize < 4) podSize++;
+				else break;
+			} else {
+				// fallback: alternate rows/cols growth, then pod size
+				if (cols < 8) cols++;
+				else if (rows < 8) rows++;
+				else if (podSize < 4) podSize++;
+				else break;
 			}
-			// If we just reached a 7th row or column and podSize is still 1,
-			// switch to podSize 2 and restart layout at 1x1 so we build
-			// with the larger pod size from the beginning.
-			if ((rows === 7 || cols === 7) && podSize < 2) {
-				podSize = 2;
-				rows = 1;
-				cols = 1;
-				addColNext = true;
-				continue;
-			}
-			addColNext = !addColNext;
 		}
 		return { rows, cols, podSize };
 	}
@@ -205,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 
-	function doGo() {
+	function doGo(changed) {
 		// remove any 'hidden' class markers when user clicks Go
 		document.querySelectorAll('.hidden').forEach(el => el.classList.remove('hidden'));
 		const names = parseNames();
@@ -217,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 		let rows = parseInt(rowsInput.value, 10) || 1;
 		let cols = parseInt(colsInput.value, 10) || 1;
-		const { rows: r2, cols: c2, podSize: p2 } = autoExpandLayout(names.length, rows, cols, podSizeVal);
+		const { rows: r2, cols: c2, podSize: p2 } = autoExpandLayout(names.length, rows, cols, podSizeVal, changed);
 		rows = r2; cols = c2; podSizeVal = p2;
 		rowsInput.value = rows; colsInput.value = cols;
 		podInput.value = podSizeVal;
@@ -258,10 +264,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// apply chart immediately when rows or cols change
 	rowsInput.addEventListener('input', () => {
-		if (namesInput.value.trim()) doGo();
+		if (namesInput.value.trim()) doGo('rows');
 	});
 	colsInput.addEventListener('input', () => {
-		if (namesInput.value.trim()) doGo();
+		if (namesInput.value.trim()) doGo('cols');
 	});
 
 	// initial render
