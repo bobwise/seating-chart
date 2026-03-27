@@ -237,6 +237,7 @@ button {
 
 .btn-primary {
     background: var(--primary);
+    border: 2px solid var(--primary);
     font-weight: 700;
 
     &:hover {
@@ -249,13 +250,24 @@ button {
 }
 
 #go {
-   
+    margin-right: 5px;
 }
 
 .btn-secondary {
     background: white;
     color: var(--primary);
     border: 2px solid var(--primary);
+    font-weight: 500;
+
+    &:hover {
+        color: var(--primary-medium);
+        border-color: var(--primary-medium);
+    }
+
+    &:active {
+        color: var(--primary-medium);
+        border-color: var(--primary-medium);
+    }
 }
 
 .btn-delete {
@@ -321,14 +333,14 @@ button {
     z-index: 5;
 }
 
-#dragLabel, #namesLabel {
+#dragLabel,
+#namesLabel {
     font-size: 14px;
     color: #343434;
     margin-bottom: 6px;
 }
 
-#namesLabel {
-}
+#namesLabel {}
 
 #boardLabel {
     width: 100%;
