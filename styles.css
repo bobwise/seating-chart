@@ -67,7 +67,8 @@ textarea {
     display: grid;
     grid-auto-rows: 100px;
     gap: 40px;
-    background: transparent
+    background: transparent;
+    margin-bottom: 100px;
 }
 
 .seat {
@@ -239,6 +240,28 @@ button.delete {
 .align-right {
     display: flex;
     justify-content: flex-end;
+}
+
+.print-bottom {
+    position: fixed;
+    bottom: 120px;
+    right: 20px;
+    z-index: 10;
+}
+
+#adsense-ad {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: #f0f0f0;
+    border-top: 1px solid #ccc;
+    text-align: center;
+    line-height: 100px;
+    font-size: 14px;
+    color: #666;
+    z-index: 5;
 }
 
 .hidden {
