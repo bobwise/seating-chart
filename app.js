@@ -190,8 +190,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 
-	// sort functionality removed
-
 	function shuffleSeats() {
 		const flat = pods.flatMap(p => p.desks);
 		for (let i = flat.length - 1; i > 0; i--) {

@@ -46,7 +46,6 @@ h1 {
     gap: 8px;
     align-items: center;
     flex-wrap: wrap;
-    height: 68px;
 }
 
 .controls label {
