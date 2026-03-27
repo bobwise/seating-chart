@@ -15,21 +15,29 @@
         <div class="panel">
             <div id="clearContainer">
                 <label for="names" id="namesLabel">Names</label>
-                <button type="button" class="btn-delete hidden" id="clear">Clear</button>
+                <button type="button" class="btn-tertiary btn-small hidden" id="clear">Clear</button>
             </div>
             <textarea id="names"></textarea>
         </div>
 
         <div class="panel controls hidden">
             <div>
-                <button type="button" class="hidden btn-secondary" id="shuffle" title="Shuffle">Shuffle</button>
+                <button type="button" class="hidden btn-tertiary" id="shuffle" title="Shuffle">Shuffle</button>
             </div>
             <div>
-                <label class="hidden">Rows <input id="rows" type="number" min="1" max="8" value="1"></label>
-                <label class="hidden">Columns <input id="cols" type="number" min="1" max="8" value="1"></label>
+
+                <div id="arrowsContainer">
+                    <button class="numChange btn-tertiary" id="wider">⬅️➡️</button>
+                    <button class="numChange btn-tertiary" id="narrower">➡️⬅️</button>
+                    <button class="numChange btn-tertiary" id="taller">⬆️</button>
+                    <button class="numChange btn-tertiary" id="shorter">⬇️</button>
+                </div>
+
+                <input id="rows" type="number" min="1" max="8" value="1">
+                <input id="cols" type="number" min="1" max="8" value="1">
                 <input id="podSize" type="hidden" value="1">
                 <div class="pod-size-toggle hidden" aria-label="Pod size">
-                    <button type="button" class="pod-option active" data-pod-size="1" aria-pressed="true"
+                    <button type="button" class="pod-option active btn-tertiary" data-pod-size="1" aria-pressed="true"
                         title="Pod size 1">
                         <div class="seat">
                             <div class="pod">
@@ -39,7 +47,7 @@
                             </div>
                         </div>
                     </button>
-                    <button type="button" class="pod-option" data-pod-size="2" aria-pressed="false" title="Pod size 2">
+                    <button type="button" class="pod-option btn-tertiary" data-pod-size="2" aria-pressed="false" title="Pod size 2">
                         <div class="seat">
                             <div class="pod">
                                 <div class="desk">
@@ -51,7 +59,7 @@
                             </div>
                         </div>
                     </button>
-                    <button type="button" class="pod-option" data-pod-size="4" aria-pressed="false" title="Pod size 4">
+                    <button type="button" class="pod-option btn-tertiary" data-pod-size="4" aria-pressed="false" title="Pod size 4">
                         <div class="seat">
                             <div class="pod pod-square">
                                 <div class="desk">

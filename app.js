@@ -10,6 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	const printBtn = document.getElementById('print');
 	const namesInput = document.getElementById('names');
 	const chart = document.getElementById('chart');
+	const widerButton = document.getElementById('wider');
+	const narrowerButton = document.getElementById('narrower');
+	const tallerButton = document.getElementById('taller');
+	const shorterButton = document.getElementById('shorter');
 
 	// capture elements that start hidden so we can restore them on Clear
 	const initiallyHidden = Array.from(document.querySelectorAll('.hidden'));
@@ -259,6 +263,23 @@ document.addEventListener('DOMContentLoaded', () => {
 		if (namesInput.value.trim()) doGo('names');
 	})
 
+	widerButton.addEventListener('click', () => {
+		colsInput.value = Math.min(8, (parseInt(colsInput.value, 10) || 1) + 1);
+		if (namesInput.value.trim()) doGo('cols');
+	});
+	narrowerButton.addEventListener('click', () => {
+		colsInput.value = Math.max(1, (parseInt(colsInput.value, 10) || 1) - 1);
+		if (namesInput.value.trim()) doGo('cols');
+	});
+	tallerButton.addEventListener('click', () => {
+		rowsInput.value = Math.min(8, (parseInt(rowsInput.value, 10) || 1) + 1);
+		if (namesInput.value.trim()) doGo('rows');
+	});
+	shorterButton.addEventListener('click', () => {
+		rowsInput.value = Math.max(1, (parseInt(rowsInput.value, 10) || 1) - 1);
+		if (namesInput.value.trim()) doGo('rows');
+	});
+
 	// apply chart immediately when rows or cols change
 	rowsInput.addEventListener('input', () => {
 		if (namesInput.value.trim()) doGo('rows');
@@ -270,8 +291,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	// initial render
 	// prefill example names for convenience
 	if (!namesInput.value.trim()) {
-		namesInput.value = 'Soren-Alexis Vale Mercer\nRemy Clarke\nBo Quinn Hale\nAvery-Jules Mercer Cross\nLior Skye\nCassian River Thorn Vale\nAri Sol Carter\nSkyler Élan Cross Vale\nZee Rowan Hale\nHollis Alexander Wren Vale\nPax Mercer\nFinley-Rowan Ashford Vale\nIo Skye Carter\nMarlowe Seraphine Vale Cross\nRen Hale\nTatum Blake Mercer\nLux Vale\nEmberlynn Quinn Hale Cross\nAsh Carter\nDakota-Rain Mercer Vale\nElio Skye\nBriar Alexandria Skye Vale\nKit Hale\nZephyr Orion Vale Cross\nSol Mercer\nAvery Noël Carter\nOnyx Vale\nShiloh Evander Cross Vale\nRue Mercer\nLyric Hale';
+		doClear();
+		// namesInput.value = 'Soren-Alexis Vale Mercer\nRemy Clarke\nBo Quinn Hale\nAvery-Jules Mercer Cross\nLior Skye\nCassian River Thorn Vale\nAri Sol Carter\nSkyler Élan Cross Vale\nZee Rowan Hale\nHollis Alexander Wren Vale\nPax Mercer\nFinley-Rowan Ashford Vale\nIo Skye Carter\nMarlowe Seraphine Vale Cross\nRen Hale\nTatum Blake Mercer\nLux Vale\nEmberlynn Quinn Hale Cross\nAsh Carter\nDakota-Rain Mercer Vale\nElio Skye\nBriar Alexandria Skye Vale\nKit Hale\nZephyr Orion Vale Cross\nSol Mercer\nAvery Noël Carter\nOnyx Vale\nShiloh Evander Cross Vale\nRue Mercer\nLyric Hale';
 	}
 	// generate initial chart based on prefilled names and default inputs
-	doGo();
+	// doGo();
 });
