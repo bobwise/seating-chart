@@ -260,6 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	goBtn.addEventListener('click', doGo);
 	shuffleBtn.addEventListener('click', () => { shuffleSeats(); renderChart(parseInt(rowsInput.value, 10), parseInt(colsInput.value, 10), parseInt(podInput.value, 10)); });
 	printBtn.addEventListener('click', doPrint);
+	document.getElementById('printBottom').addEventListener('click', doPrint);
 	clearBtn.addEventListener('click', doClear);
 
 	// apply chart immediately when rows or cols change
