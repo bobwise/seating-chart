@@ -260,6 +260,7 @@ button {
     font-weight: 500;
 
     &:hover {
+        background-color: #f0f7ff;
         color: var(--primary-medium);
         border-color: var(--primary-medium);
     }
