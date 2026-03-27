@@ -66,24 +66,24 @@ document.addEventListener('DOMContentLoaded', () => {
 		while (rows * cols * podSize < required && canGrow()) {
 			if (changed === 'rows') {
 				if (cols < 8) cols++;
-				else if (podSize < 4) podSize++;
+				else if (podSize < 4) { podSize++; setPodSize(podSize); }
 				else if (rows < 8) rows++;
 				else break;
 			} else if (changed === 'cols') {
 				if (rows < 8) rows++;
-				else if (podSize < 4) podSize++;
+				else if (podSize < 4) { podSize++; setPodSize(podSize); }
 				else if (cols < 8) cols++;
 				else break;
 			} else if (changed === 'podSize') {
 				if (rows < 8) rows++;
 				else if (cols < 8) cols++;
-				else if (podSize < 4) podSize++;
+				else if (podSize < 4) { podSize++; setPodSize(podSize); }
 				else break;
 			} else {
 				// fallback: alternate rows/cols growth, then pod size
 				if (cols < 8) cols++;
 				else if (rows < 8) rows++;
-				else if (podSize < 4) podSize++;
+				else if (podSize < 4) { podSize++; setPodSize(podSize); }
 				else break;
 			}
 		}
