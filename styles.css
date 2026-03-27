@@ -1,6 +1,13 @@
 :root {
     --panel-bg: #fff;
-    --accent: #188cb0;
+    --highlight: #61b4ef;
+    --primary: #005ea2;
+    --primary-medium: #1a4480;
+    --primary-dark: #162e51;
+    --secondary: #7fbfbf;
+    --secondary-medium: #9fd0d0;
+    --secondary-dark: #5f9f9f;
+
     --seat-bg: #a5a5a5;
 }
 
@@ -143,16 +150,6 @@ textarea {
     opacity: 0.5
 }
 
-button {
-    padding: 8px 10px;
-    border-radius: 6px;
-    border: none;
-    background: var(--accent);
-    color: #fff;
-    cursor: pointer;
-    font-size: 16px;
-}
-
 .pod-size-toggle {
     gap: 8px;
     align-items: center;
@@ -176,7 +173,7 @@ button {
 
 .pod-option.active,
 .pod-option:hover {
-    border-color: var(--accent);
+    border-color: var(--primary);
     box-shadow: 0 0 0 2px rgba(24, 140, 176, .2);
 }
 
@@ -187,7 +184,7 @@ button {
 
 .pod-icon span {
     display: block;
-    background: var(--accent);
+    background: var(--primary);
     border-radius: 2px;
 }
 
@@ -222,9 +219,43 @@ button {
     height: 10px;
 }
 
-button.delete {
-    border: 2px solid rgb(160, 0, 0);
-    background-color: rgb(255, 207, 207);
+button {
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+
+    &:focus-visible {
+        outline: 2px solid var(--highlight);
+        outline-offset: 2px;
+    }
+}
+
+.btn-primary {
+    background: var(--primary);
+    font-weight: 700;
+
+    &:hover {
+        background: var(--primary-medium);
+    }
+
+    &:active {
+        background: var(--primary-dark);
+    }
+}
+
+.btn-secondary {
+    background: white;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.btn-delete {
+    border: 2px solid rgb(209, 209, 209);
+    background-color: rgb(255, 255, 255);
     color: black;
     font-size: 14px;
     margin-left: 20px;

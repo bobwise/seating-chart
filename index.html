@@ -14,14 +14,14 @@
 
         <div class="panel">
             <label for="names" id="namesLabel">Names</label>
-            <button class="delete hidden" id="clear">❌ Clear</button>
+            <button class="btn-delete hidden" id="clear">❌ Clear</button>
             <textarea id="names"></textarea>
         </div>
 
         <div class="panel controls">
             <div>
-                <button id="go">Go</button>
-                <button class="hidden" id="shuffle" title="Shuffle">🔀 Shuffle</button>
+                <button class="btn-primary" id="go">Go</button>
+                <button class="hidden btn-secondary" id="shuffle" title="Shuffle">🔀 Shuffle</button>
             </div>
             <div>
                 <label class="hidden">Rows <input id="rows" type="number" min="1" max="8" value="1"></label>
@@ -71,7 +71,7 @@
                 </div>
             </div>
             <div>
-                <button class="hidden" id="print" title="Print">🖨️ Print</button>
+                <button class="hidden btn-secondary" id="print" title="Print">🖨️ Print</button>
             </div>
         </div>
 
@@ -82,7 +82,7 @@
         </div>
 
         <div class="align-right">
-        <button class="hidden print-bottom" id="printBottom" title="Print">🖨️ Print</button>
+        <button class="hidden btn-secondary print-bottom" id="printBottom" title="Print">🖨️ Print</button>
         </div>
     </div>
 
