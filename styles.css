@@ -100,7 +100,7 @@ textarea {
 }
 
 .seat.drag-over {
-    outline: 3px dashed #7fbfbf
+    outline: 6px dashed var(--primary);
 }
 
 .pod {
@@ -118,7 +118,6 @@ textarea {
     grid-auto-rows: 1fr;
     gap: 1px;
     align-items: stretch;
-    height: 100%;
 }
 
 .desk {
@@ -144,7 +143,8 @@ textarea {
 }
 
 .desk-seat.drag-over {
-    outline: 3px dashed #7fbfbf
+    outline: 3px solid rgb(137, 192, 255);
+    background-color: rgb(137, 192, 255);
 }
 
 .desk-seat.dragging {
