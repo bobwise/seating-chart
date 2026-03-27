@@ -248,11 +248,6 @@ button {
     }
 }
 
-#go {
-    margin-right: 5px;
-    display: none;
-}
-
 .btn-secondary {
     background: white;
     color: var(--primary);

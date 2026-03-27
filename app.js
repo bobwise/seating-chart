@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	const colsInput = document.getElementById('cols');
 	const podInput = document.getElementById('podSize');
 	const podOptions = Array.from(document.querySelectorAll('.pod-option'));
-	const goBtn = document.getElementById('go');
 	const shuffleBtn = document.getElementById('shuffle');
 	const clearBtn = document.getElementById('clear');
 	const printBtn = document.getElementById('print');
@@ -14,13 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// capture elements that start hidden so we can restore them on Clear
 	const initiallyHidden = Array.from(document.querySelectorAll('.hidden'));
-
-		function updateGoState() {
-			if (!goBtn) return;
-			goBtn.disabled = !namesInput.value.trim();
-		}
-
-		namesInput.addEventListener('input', updateGoState);
 
 	function setPodSize(size) {
 		const podSize = Number(size) || 1;
@@ -248,8 +240,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		initiallyHidden.forEach(el => el.classList.add('hidden'));
 		// put focus back in names field
 		namesInput.focus();
-			// update Go button state after clearing
-			updateGoState();
 	}
 
 	function doPrint() {
@@ -262,7 +252,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	// wire up buttons
-	goBtn.addEventListener('click', doGo);
 	shuffleBtn.addEventListener('click', () => { shuffleSeats(); renderChart(parseInt(rowsInput.value, 10), parseInt(colsInput.value, 10), parseInt(podInput.value, 10)); });
 	printBtn.addEventListener('click', doPrint);
 	document.getElementById('printBottom').addEventListener('click', doPrint);
@@ -285,9 +274,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	if (!namesInput.value.trim()) {
 		namesInput.value = 'Soren-Alexis Vale Mercer\nRemy Clarke\nBo Quinn Hale\nAvery-Jules Mercer Cross\nLior Skye\nCassian River Thorn Vale\nAri Sol Carter\nSkyler Élan Cross Vale\nZee Rowan Hale\nHollis Alexander Wren Vale\nPax Mercer\nFinley-Rowan Ashford Vale\nIo Skye Carter\nMarlowe Seraphine Vale Cross\nRen Hale\nTatum Blake Mercer\nLux Vale\nEmberlynn Quinn Hale Cross\nAsh Carter\nDakota-Rain Mercer Vale\nElio Skye\nBriar Alexandria Skye Vale\nKit Hale\nZephyr Orion Vale Cross\nSol Mercer\nAvery Noël Carter\nOnyx Vale\nShiloh Evander Cross Vale\nRue Mercer\nLyric Hale';
 	}
-		// ensure Go button state matches textbox content (after any prefill)
-		updateGoState();
-
 	// generate initial chart based on prefilled names and default inputs
 	doGo();
 });
