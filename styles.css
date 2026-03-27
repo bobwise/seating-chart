@@ -17,7 +17,7 @@ body {
 }
 
 .app {
-    max-width: 80%;
+    max-width: 85%;
     margin: 0 auto
 }
 
@@ -153,9 +153,9 @@ button {
 }
 
 .pod-size-toggle {
-    display: flex;
     gap: 8px;
     align-items: center;
+    display: inline-flex;
 }
 
 .pod-option {
@@ -236,4 +236,6 @@ button.delete {
     }
 }
 
-.hidden { display: none; }
+.hidden {
+    display: none;
+}
