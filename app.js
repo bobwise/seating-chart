@@ -259,7 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	// initial render
 	// prefill example names for convenience
 	if (!namesInput.value.trim()) {
-		namesInput.value = 'Maria Cruz\nMei-Ling Chen\nJamal Malik Thompson\nAna López-García\nMichael Sean O\'Connor\nAisha Noor Al-Hassan\nBill Lee\nPriya Kaur Singh\nSam Jones\nChen Wei Zhao\nSofia Isabel Martinez-Rodriguez\nKwame Nkrumah Mensah';
+		namesInput.value = 'Alix Roe\nMaximilian Avery Cross\nJae Lin Carter\nRowan Everleigh Skye Vale\nKai Sol Mercer\nEllison Gray Vale\nNoor Hale\nPhoenix Araminta Hale Cross\nTy Rowan Blake\nIndigo Wren Vale\nSoren-Alexis Vale Mercer\nRemy Clarke\nBo Quinn Hale\nAvery-Jules Mercer Cross\nLior Skye\nCassian River Thorn Vale\nAri Sol Carter\nSkyler Élan Cross Vale\nZee Rowan Hale\nHollis Alexander Wren Vale\nPax Mercer\nFinley-Rowan Ashford Vale\nIo Skye Carter\nMarlowe Seraphine Vale Cross\nRen Hale\nTatum Blake Mercer\nLux Vale\nEmberlynn Quinn Hale Cross\nAsh Carter\nDakota-Rain Mercer Vale\nElio Skye\nBriar Alexandria Skye Vale\nKit Hale\nZephyr Orion Vale Cross\nSol Mercer\nAvery Noël Carter\nOnyx Vale\nShiloh Evander Cross Vale\nRue Mercer\nLyric Hale';
 	}
 		// ensure Go button state matches textbox content (after any prefill)
 		updateGoState();
