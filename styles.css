@@ -142,7 +142,7 @@ textarea {
     opacity: 0.5
 }
 
-.controls button {
+button {
     padding: 8px 10px;
     border-radius: 10px;
     border: none;
@@ -150,6 +150,79 @@ textarea {
     color: #fff;
     cursor: pointer;
     font-size: 16px;
+}
+
+.pod-size-toggle {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.pod-option {
+    width: 72px;
+    height: 44px;
+    border: 1px solid #cfd8d7;
+    border-radius: 8px;
+    background: #fff;
+    color: #063740;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.pod-option.active,
+.pod-option:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(24, 140, 176, .2);
+}
+
+.pod-icon {
+    display: grid;
+    gap: 3px;
+}
+
+.pod-icon span {
+    display: block;
+    background: var(--accent);
+    border-radius: 2px;
+}
+
+.pod-1 {
+    grid-template-columns: 1fr;
+}
+
+.pod-1 span {
+    width: 18px;
+    height: 18px;
+}
+
+.pod-2 {
+    grid-template-columns: 1fr;
+}
+
+.pod-2 span {
+    width: 12px;
+    height: 12px;
+}
+
+.pod-2 span:first-child {
+    margin-bottom: 2px;
+}
+
+.pod-4 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.pod-4 span {
+    width: 10px;
+    height: 10px;
+}
+
+button.delete {
+    background-color: red;
 }
 
 .controls button[disabled] {

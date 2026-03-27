@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const rowsInput = document.getElementById('rows');
 	const colsInput = document.getElementById('cols');
 	const podInput = document.getElementById('podSize');
+	const podOptions = Array.from(document.querySelectorAll('.pod-option'));
 	const goBtn = document.getElementById('go');
 	const shuffleBtn = document.getElementById('shuffle');
 	const clearBtn = document.getElementById('clear');
@@ -20,6 +21,25 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 
 		namesInput.addEventListener('input', updateGoState);
+
+	function setPodSize(size) {
+		const podSize = Number(size) || 1;
+		podInput.value = podSize;
+		podOptions.forEach(option => {
+			const isActive = Number(option.dataset.podSize) === podSize;
+			option.classList.toggle('active', isActive);
+			option.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+		});
+	}
+
+	podOptions.forEach(option => {
+		option.addEventListener('click', () => {
+			setPodSize(option.dataset.podSize);
+			doGo();
+		});
+	});
+
+	setPodSize(podInput.value);
 
 	// pods: array of { desks: [name, ...] }
 	let pods = [];
@@ -213,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		chart.innerHTML = '';
 		rowsInput.value = 1;
 		colsInput.value = 1;
-		podInput.value = 1;
+		setPodSize(1);
 		initiallyHidden.forEach(el => el.classList.add('hidden'));
 		// put focus back in names field
 		namesInput.focus();

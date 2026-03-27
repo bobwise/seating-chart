@@ -14,18 +14,67 @@
 
         <div class="panel">
             <label for="names">Names</label>
+            <button class="delete hidden" id="clear">Clear</button>
             <textarea id="names"></textarea>
         </div>
 
         <div class="panel controls">
             <div>
                 <button id="go">Go</button>
-                <button class="hidden" id="clear">Clear</button> 
             </div>
             <div>
                 <label class="hidden">Rows <input id="rows" type="number" min="1" max="8" value="1"></label>
                 <label class="hidden">Columns <input id="cols" type="number" min="1" max="8" value="1"></label>
-                <label class="hidden">Pod size <input id="podSize" type="number" min="1" max="4" value="1"></label>
+                <input id="podSize" type="hidden" value="1">
+                <div class="pod-size-toggle" aria-label="Pod size">
+                    <button type="button" class="pod-option active" data-pod-size="1" aria-pressed="true"
+                        title="Pod size 1">
+                        <div class="seat">
+                            <div class="pod">
+                                <div class="desk">
+                                    <div class="desk-seat" data-desk="0"><span class="name"
+                                            style="white-space: normal; font-size: 18px;"></span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </button>
+                    <button type="button" class="pod-option" data-pod-size="2" aria-pressed="false" title="Pod size 2">
+                        <div class="seat">
+                            <div class="pod">
+                                <div class="desk">
+                                    <div class="desk-seat" data-desk="0"><span class="name"
+                                            style="white-space: normal; font-size: 18px;"></span></div>
+                                </div>
+                                <div class="desk">
+                                    <div class="desk-seat" data-desk="1"><span class="name"
+                                            style="white-space: normal; font-size: 18px;"></span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </button>
+                    <button type="button" class="pod-option" data-pod-size="4" aria-pressed="false" title="Pod size 4">
+                        <div class="seat">
+                            <div class="pod pod-square">
+                                <div class="desk">
+                                    <div class="desk-seat" data-desk="0"><span class="name"
+                                            style="white-space: normal; font-size: 18px;"></span></div>
+                                </div>
+                                <div class="desk">
+                                    <div class="desk-seat" data-desk="1"><span class="name"
+                                            style="white-space: normal; font-size: 18px;"></span></div>
+                                </div>
+                                <div class="desk">
+                                    <div class="desk-seat" data-desk="2"><span class="name"
+                                            style="white-space: normal; font-size: 18px;"></span></div>
+                                </div>
+                                <div class="desk">
+                                    <div class="desk-seat" data-desk="3"><span class="name"
+                                            style="white-space: normal; font-size: 18px;"></span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </button>
+                </div>
             </div>
             <div>
                 <button class="hidden" id="shuffle">Shuffle</button>
