@@ -60,7 +60,6 @@ h1 {
 #arrowsContainer {
     display: inline-flex;
     gap: 4px;
-    margin-right: 16px;
 }
 
 #wider {
@@ -168,7 +167,7 @@ textarea {
     gap: 8px;
     align-items: center;
     display: inline-flex;
-    margin-left: 32px;
+    margin-right: 64px;
 }
 
 .pod-option {
@@ -189,6 +188,7 @@ textarea {
 .pod-option.active,
 .pod-option:hover {
     border-color: var(--primary);
+    background-color: #d7e9fd;
 }
 
 .pod-icon {
