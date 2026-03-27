@@ -13,15 +13,17 @@
         <h1>Free Seating Chart Generator</h1>
 
         <div class="panel">
-            <label for="names" id="namesLabel">Names</label>
-            <button class="btn-delete hidden" id="clear">❌ Clear</button>
+            <div id="clearContainer">
+                <label for="names" id="namesLabel">Names</label>
+                <button class="btn-delete hidden" id="clear">Clear</button>
+            </div>
             <textarea id="names"></textarea>
         </div>
 
         <div class="panel controls">
             <div>
                 <button class="btn-primary" id="go">Go</button>
-                <button class="hidden btn-secondary" id="shuffle" title="Shuffle">🔀 Shuffle</button>
+                <button class="hidden btn-secondary" id="shuffle" title="Shuffle">Shuffle</button>
             </div>
             <div>
                 <label class="hidden">Rows <input id="rows" type="number" min="1" max="8" value="1"></label>
@@ -82,7 +84,7 @@
         </div>
 
         <div class="align-right">
-        <button class="hidden btn-secondary print-bottom" id="printBottom" title="Print">🖨️ Print</button>
+            <button class="hidden btn-secondary print-bottom" id="printBottom" title="Print">🖨️ Print</button>
         </div>
     </div>
 

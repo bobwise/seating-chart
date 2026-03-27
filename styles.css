@@ -45,7 +45,8 @@ h1 {
     justify-content: space-between;
     gap: 8px;
     align-items: center;
-    flex-wrap: wrap
+    flex-wrap: wrap;
+    height: 68px;
 }
 
 .controls label {
@@ -247,6 +248,10 @@ button {
     }
 }
 
+#go {
+   
+}
+
 .btn-secondary {
     background: white;
     color: var(--primary);
@@ -254,12 +259,28 @@ button {
 }
 
 .btn-delete {
-    border: 2px solid rgb(209, 209, 209);
+    border: 1px solid rgb(209, 209, 209);
     background-color: rgb(255, 255, 255);
-    color: black;
+    color: rgb(55, 55, 55);
     font-size: 14px;
-    margin-left: 20px;
     padding: 4px 6px;
+
+    &:hover {
+        background-color: rgb(250, 250, 250);
+        border-color: rgb(167, 167, 167);
+    }
+
+    &:focus-visible {
+        background-color: rgb(250, 250, 250);
+        border-color: rgb(167, 167, 167);
+    }
+}
+
+#clearContainer {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 120px;
+    height: 24px;
 }
 
 .controls button[disabled] {
@@ -304,6 +325,9 @@ button {
     font-size: 14px;
     color: #343434;
     margin-bottom: 6px;
+}
+
+#namesLabel {
 }
 
 #boardLabel {
