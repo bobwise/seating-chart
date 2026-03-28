@@ -277,8 +277,14 @@ body {
 
 .chart {
     display: grid;
-    gap: 40px;
+    gap: 30px;
     background: transparent;
+}
+
+@media (max-width:900px) {
+    .chart {
+        gap: 10px;
+    }
 }
 
 .seat {
@@ -338,12 +344,6 @@ body {
     width: 100%;
     height: 100%;
     box-sizing: border-box
-}
-
-@media (max-width:600px) {
-    .chart {
-        grid-auto-rows: 60px
-    }
 }
 
 #boardLabel {

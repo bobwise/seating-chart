@@ -87,8 +87,14 @@ textarea {
 
 .chart {
     display: grid;
-    gap: 40px;
+    gap: 30px;
     background: transparent;
+}
+
+@media (max-width:900px) {
+    .chart {
+        gap: 10px;
+    }
 }
 
 .seat {
@@ -312,12 +318,6 @@ button {
 .controls button[disabled] {
     opacity: 0.5;
     cursor: not-allowed
-}
-
-@media (max-width:600px) {
-    .chart {
-        grid-auto-rows: 60px
-    }
 }
 
 .align-right {
