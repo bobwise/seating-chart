@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const narrowerButton = document.getElementById('narrower');
 	const tallerButton = document.getElementById('taller');
 	const shorterButton = document.getElementById('shorter');
+	const sortButton = document.getElementById('sort');
 
 	// capture elements that start hidden so we can restore them on Clear
 	const initiallyHidden = Array.from(document.querySelectorAll('.hidden'));
@@ -399,6 +400,12 @@ body {
 	});
 	colsInput.addEventListener('input', () => {
 		if (namesInput.value.trim()) doGo('cols');
+	});
+
+	sortButton.addEventListener('click', () => {
+		const names = parseNames().sort((a, b) => a.localeCompare(b));
+		namesInput.value = names.join('\n');
+		doGo('names');
 	});
 
 	// initial render
